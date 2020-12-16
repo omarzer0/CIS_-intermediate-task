@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CIS-Intermediate-Task</string>
+    <string name="best_sellers">Best Sellers</string>
+    <string name="random_offers">Random Offers</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.azapps.cis_intermediate_task.adapter;
 
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ public class ItemAdapter extends ListAdapter<FoodItem, ItemViewHolder> {
     public static final ItemDiffUtill CALLBACK = new ItemDiffUtill();
     OnFoodItemClick listener;
 
-    protected ItemAdapter(OnFoodItemClick onFoodItemClick) {
+    public ItemAdapter(OnFoodItemClick onFoodItemClick) {
         super(CALLBACK);
         listener = onFoodItemClick;
     }
@@ -36,6 +37,7 @@ public class ItemAdapter extends ListAdapter<FoodItem, ItemViewHolder> {
         if (currentItem.isHasOfferPrice()) {
             holder.offerPriceTv.setVisibility(View.VISIBLE);
             holder.offerPriceTv.setText(currentItem.getOfferPrice());
+            holder.priceTV.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         }
         holder.ratingTV.setText(String.valueOf(currentItem.getRating()));
     }
