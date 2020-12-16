@@ -21,7 +21,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
-        Log.e("TAG", "getItem: ");
         if (position == 0) fragment = new FirstSliderFragment();
         else fragment = new SecondSliderFragment();
         return fragment;

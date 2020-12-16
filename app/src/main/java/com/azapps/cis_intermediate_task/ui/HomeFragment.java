@@ -37,7 +37,6 @@ public class HomeFragment extends Fragment implements OnFoodItemClick {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Log.e("TAG", "onCreateView: " );
         initViews(view);
         setUpSlider();
         setUpSellsRV();
@@ -53,7 +52,6 @@ public class HomeFragment extends Fragment implements OnFoodItemClick {
     }
 
     private void setUpSlider() {
-        Log.e("TAG", "setUpSlider: " );
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -90,23 +88,5 @@ public class HomeFragment extends Fragment implements OnFoodItemClick {
     @Override
     public void onFoodClick(int position) {
         Toast.makeText(getActivity(), "Clicked position#"+position, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.e("TAG", "onPause: " );
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.e("TAG", "onStop: " );
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.e("TAG", "onDestroyView: " );
     }
 }
