@@ -1,13 +1,15 @@
 package com.azapps.cis_intermediate_task.adapter;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.azapps.cis_intermediate_task.ui.ScreenSlidePageFragment;
+import com.azapps.cis_intermediate_task.ui.FirstSliderFragment;
+import com.azapps.cis_intermediate_task.ui.SecondSliderFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
@@ -18,12 +20,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        ScreenSlidePageFragment fragment = new ScreenSlidePageFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("msg", position);
-        fragment.setArguments(bundle);
+        Fragment fragment = null;
+        Log.e("TAG", "getItem: ");
+        if (position == 0) fragment = new FirstSliderFragment();
+        else fragment = new SecondSliderFragment();
         return fragment;
     }
+
 
     @Override
     public int getCount() {

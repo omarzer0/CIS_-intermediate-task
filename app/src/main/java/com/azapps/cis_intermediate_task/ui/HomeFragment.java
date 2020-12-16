@@ -1,6 +1,7 @@
 package com.azapps.cis_intermediate_task.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,13 +31,13 @@ public class HomeFragment extends Fragment implements OnFoodItemClick {
     private RecyclerView sellsRecyclerView;
     private RecyclerView offersRecyclerView;
     private ViewPager viewPager;
-    private ViewPagerAdapter viewPagerAdapter;
     private TabLayout tabLayout;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        Log.e("TAG", "onCreateView: " );
         initViews(view);
         setUpSlider();
         setUpSellsRV();
@@ -52,7 +53,8 @@ public class HomeFragment extends Fragment implements OnFoodItemClick {
     }
 
     private void setUpSlider() {
-        viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
+        Log.e("TAG", "setUpSlider: " );
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
@@ -88,5 +90,23 @@ public class HomeFragment extends Fragment implements OnFoodItemClick {
     @Override
     public void onFoodClick(int position) {
         Toast.makeText(getActivity(), "Clicked position#"+position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.e("TAG", "onPause: " );
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.e("TAG", "onStop: " );
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.e("TAG", "onDestroyView: " );
     }
 }
